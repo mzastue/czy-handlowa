@@ -1,0 +1,10 @@
+::root, [data-theme="default"] {
+    --color-accent: hsl(350, 70%, 63%);
+    --color-bg: hsl(200, 3%, 84%);
+    --color-text: hsl(227, 36%, 14%);
+  }
+  [data-theme="dark"] {
+    --color-bg: hsl(227, 36%, 14%);
+    --color-text: hsl(200, 3%, 84%);
+    --color-accent: hsl(350, 70%, 63%);
+  }
