@@ -11,9 +11,10 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
-import moment from "@/utils/datetime";
-import Day from '../utils/Day';
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import moment from '@/utils/datetime';
+import Day, { DayInterface } from '../utils/Day';
+import { CalendarInterface } from '../utils/Calendar';
 
 @Component({
   props: {
@@ -24,15 +25,19 @@ import Day from '../utils/Day';
     dateFormat(value: moment.Moment) {
       return value.format('DD-MM-YYYY');
     },
-  }
+  },
 })
 export default class Answer extends Vue {
+  @Prop(Object) readonly calendar!: CalendarInterface;
+
   today: Day = this.calendar.getToday();
   nextSunday: Day = this.getNextSunday(this.today);
 
   dayText(day: Day) {
     const weekday = day.date.format('dddd').toLowerCase();
-    const sundayText = day.isSunday ? ` ${day.isCommercial ? ' handlowa' : ' niehandlowa'}` : '';
+    const sundayText = day.isSunday
+      ? ` ${day.isCommercial ? ' handlowa' : ' niehandlowa'}`
+      : '';
     return ` ${weekday}${sundayText}`;
   }
 

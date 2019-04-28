@@ -1,4 +1,5 @@
-import moment = require("moment");
+import moment from "./datetime";
+import { DayInterface } from './Day';
 
 const commercialSundays: Array<string> = [
   '2019-04-14',
@@ -15,18 +16,23 @@ const commercialSundays: Array<string> = [
   '2019-12-29',
 ].sort();
 
-const isCommercialSunday = (day: Day): boolean => {
+const isCommercialSunday = (day: DayInterface): boolean => {
   return !!commercialSundays
     .find((commercialSunday: string) => day.date.format('YYYY-MM-DD') === commercialSunday);
 }
 
-export default class Calendar {
-  public constructor(firstDay: Day) {
-    this.days = [];
+export interface CalendarInterface {
+  getToday(): DayInterface;
+  addDay(day: DayInterface): void
+}
+
+export default class Calendar implements CalendarInterface {
+  private days: Array<DayInterface> = [];
+  public constructor(firstDay: DayInterface) {
     this.addDay(firstDay);
   }
 
-  public addDay(day: Day) {
+  public addDay(day: DayInterface) {
     if (this.days.length) {
       const previousDay = this.previousDey();
       day.previousDayId = previousDay.getId();
@@ -35,11 +41,11 @@ export default class Calendar {
     this.days.push(day);
   }
 
-  public getToday(): Day {
+  public getToday(): DayInterface {
     return this.days[0];
   }
 
-  private previousDey(): Day {
+  private previousDey(): DayInterface {
     return this.days[this.days.length - 1];
   }
 }

@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 import moment from '@/utils/datetime';
 import Answer from './components/Answer.vue';
 import Calendar from '@/utils/Calendar';
@@ -18,11 +18,14 @@ import Day from '@/utils/Day';
   },
 })
 export default class App extends Vue {
-  private calendar: Calendar = new Calendar(
-    new Day(moment().add(1, 'day'))
-  );
+  calendar: Calendar;
 
-  mounted () {
+  constructor() {
+    super();
+    this.calendar = new Calendar(new Day(moment()));
+  }
+
+  mounted(): void {
     const hour = moment().hour();
 
     if (hour >= 22 || hour < 6) {
