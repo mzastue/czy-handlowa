@@ -1,14 +1,19 @@
 <template>
 <header>
   <h1>Miesiąc</h1>
-  <div>najblisza niedziela / handlowa niedziela</div>
+  <Toggler :class="$style.toggler" />
 </header>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
+import Toggler from '@/components/Toggler/Toggler.vue';
 
-@Component({})
+@Component({
+  components: {
+    Toggler,
+  },
+})
 export default class Header extends Vue {
 
 }
@@ -17,5 +22,9 @@ export default class Header extends Vue {
 <style module>
 h1 {
   font-size: 5rem;
+}
+
+.toggler {
+  width: 50%;
 }
 </style>
