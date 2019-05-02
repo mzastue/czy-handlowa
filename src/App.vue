@@ -1,28 +1,40 @@
 <template>
-  <div id="app">
-    <Answer :calendar="calendar" />
-    <span>New version in progress! Stay tuned!</span>
+  <div id="app" :class="[$style.app, $style.theme, $style[theme] ]">
+    <div :class="$style.wrapper">
+        <div :class="$style.wrapperSidebar">
+          czy handlowa
+        </div>
+        <div :class="$style.wrapperMain">
+          <AppHeader :class="$style.appHeader"></AppHeader>
+          <AppMain></AppMain>
+        </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
+import AppHeader from '@/components/Header/Header.vue';
+import AppMain from '@/components/Main/Main.vue';
+
 import moment from '@/utils/datetime';
-import Answer from './components/Answer.vue';
 import Calendar from '@/utils/Calendar';
 import Day from '@/utils/Day';
 
 @Component({
   components: {
-    Answer,
+    AppHeader,
+    AppMain,
   },
 })
 export default class App extends Vue {
   calendar: Calendar;
+  theme: string;
 
   constructor() {
     super();
     this.calendar = new Calendar(new Day(moment()));
+    this.theme = 'themeLight';
   }
 
   mounted(): void {
@@ -35,34 +47,55 @@ export default class App extends Vue {
 }
 </script>
 
-<style lang="scss">
-@import '@/assets/main.scss';
-* {
-  margin: 0;
-  padding: 0;
+<style module lang="scss">
+@import 'assets/style.scss';
+@value white as colorWhite, black as colorBlack, accent as colorAccent, accentDark as colorAccentDark from "./components/shared/colors.css";
+
+.app {
+  height: 100%;
 }
 
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+.appHeader {
+  height: 200px;
+  // margin-bottom: 100px;
+}
+
+.wrapper {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  margin: 0 auto;
+  max-width: 1300px;
+}
+
+.wrapperSidebar {
+  width: 10%;
+}
+
+.wrapperMain {
+  padding-left: 200px;
+  width: 90%;
+}
+
+.theme {
+  --color-bg: colorWhite;
+  --color-text: colorBlack;
+  --color-accent-primary: colorAccent;
+  --color-accent-secondary: colorBlack;
+}
+
+.themeLight {
+  composes: theme;
+
+  color: var(--color-text);
   background: var(--color-bg);
-  color: var(--color-text);
-  height: 100vh;
 }
 
-#app span {
-  position: absolute;
-  bottom: 20px;
-  align-self: center;
-  color: var(--color-text);
-}
+.themeDark {
+  composes: theme;
+  --color-accent-primary: colorBlack;
+  --color-accent-secondary: colorAccent;
 
-.divider {
-  color: var(--color-accent);
+  color: var(--color-bg);
+  background: colorAccentDark;
 }
 </style>

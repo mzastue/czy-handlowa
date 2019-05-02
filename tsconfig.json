@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "esnext",
     "module": "es2015",
     "strict": true,
     "jsx": "preserve",
@@ -12,6 +12,7 @@
     "sourceMap": true,
     "baseUrl": ".",
     "noImplicitThis": true,
+    "skipLibCheck": true,
     "types": [
       "webpack-env"
     ],
