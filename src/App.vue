@@ -81,6 +81,7 @@ export default class App extends Vue {
   --color-text: colorBlack;
   --color-accent-primary: colorAccent;
   --color-accent-secondary: colorBlack;
+  --color-accent-dark: colorAccentDark;
 }
 
 .themeLight {
@@ -94,8 +95,10 @@ export default class App extends Vue {
   composes: theme;
   --color-accent-primary: colorBlack;
   --color-accent-secondary: colorAccent;
+  --color-bg: colorAccentDark;
+  --color-text: colorWhite;
 
-  color: var(--color-bg);
-  background: colorAccentDark;
+  color: var(--color-text);
+  background: var(--color-bg);
 }
 </style>
