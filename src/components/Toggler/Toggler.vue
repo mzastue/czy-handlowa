@@ -1,18 +1,39 @@
 <template>
-<div :class="$style.toggler">
-  <input :class="$style.togglerInput" type="checkbox" id="option">
-  <label :class="$style.togglerLabel" for="option">
-    <div :class="$style.togglerSwitch" data-checked="Najblizsza niedziela" data-unchecked="Niedziela handlowa"></div>
-  </label>
-
-</div>
+  <div :class="$style.toggler">
+    <input
+      id="option"
+      type="checkbox"
+      :class="$style.togglerInput"
+      v-model="isChecked"
+      @change="input(isChecked)"
+    />
+    <label :class="$style.togglerLabel" for="option">
+      <div
+        :class="$style.togglerSwitch"
+        data-checked="Najblizsza niedziela"
+        data-unchecked="Niedziela handlowa"
+      ></div>
+    </label>
+  </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import { Component, Vue, Prop, Emit } from 'vue-property-decorator';
 
 @Component({})
-export default class Toggler extends Vue {}
+export default class Toggler extends Vue {
+  @Prop(Boolean) readonly value!: boolean;
+
+  isChecked: boolean;
+
+  constructor() {
+    super();
+    this.isChecked = this.value;
+  }
+
+  @Emit()
+  input(value: boolean) {}
+}
 </script>
 
 <style module>
@@ -37,7 +58,7 @@ export default class Toggler extends Vue {}
 
 .togglerInput:checked ~ label .togglerSwitch:before {
   content: attr(data-unchecked);
-  left: 0;
+  left: 50%;
   color: var(--color-accent-secondary);
 }
 
@@ -47,9 +68,9 @@ export default class Toggler extends Vue {}
 
 .togglerLabel {
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   position: relative;
   display: flex;
   align-items: center;
@@ -72,12 +93,12 @@ export default class Toggler extends Vue {}
   z-index: 5;
   text-align: center;
   background: var(--color-accent-secondary);
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
 }
 
 .togglerInput:focus ~ label .togglerSwitch:after,
-.togglerInput:hover ~ label  .togglerSwitch:after {
+.togglerInput:hover ~ label .togglerSwitch:after {
   color: var(--color-bg);
 }
 
@@ -88,12 +109,11 @@ export default class Toggler extends Vue {}
 
 .toggler label .togglerSwitch:before {
   color: var(--color-accent-secondary);
-
 }
 
 .togglerInput:checked ~ label .togglerSwitch:after {
-  -webkit-transform: translate3d(100%, 0, 0);
-  transform: translate3d(100%, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .togglerSwitch {
@@ -102,11 +122,10 @@ export default class Toggler extends Vue {}
 }
 
 .togglerSwitch:before {
-  left: 50%;
+  left: 0;
   width: 50%;
   line-height: 36px;
   padding: 0 12px;
-  opacity: .3;
 }
 
 .togglerSwitch:after {
@@ -115,7 +134,8 @@ export default class Toggler extends Vue {}
 
   transition: -webkit-transform 0.3s cubic-bezier(0, 1, 0.5, 1);
   transition: transform 0.3s cubic-bezier(0, 1, 0.5, 1);
-  transition: transform 0.3s cubic-bezier(0, 1, 0.5, 1), -webkit-transform 0.3s cubic-bezier(0, 1, 0.5, 1);
+  transition: transform 0.3s cubic-bezier(0, 1, 0.5, 1),
+    -webkit-transform 0.3s cubic-bezier(0, 1, 0.5, 1);
   color: var(--color-bg);
   font-size: 1.6rem;
 }
