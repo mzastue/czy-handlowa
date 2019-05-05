@@ -26,12 +26,20 @@ export default class Header extends Vue {
 }
 </script>
 
-<style module>
+<style module lang="scss">
+@import '@/assets/styles/_breakpoints.scss';
+
 h1 {
-  font-size: 5rem;
+  font-size: 8rem;
+  font-weight: 900;
 }
 
 .toggler {
   width: 50%;
+  margin-top: 20px;
+
+  @include media('<=tablet') {
+    width: 100%;
+  }
 }
 </style>

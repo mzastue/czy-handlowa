@@ -63,19 +63,33 @@ export default class Main extends Vue {
 }
 </script>
 
-<style module>
+<style module lang="scss">
+@import '@/assets/styles/_breakpoints.scss';
+
 .days {
   display: inline-flex;
   flex-direction: row;
   composes: shadow from '@/components/shared/layout.css';
+
+  @include media('<tablet') {
+    display: block;
+  }
 }
 
 .daysBlock {
-  width: 326px;
   height: 410px;
 }
 
-.daysBlock:nth-child(2) {
-  border-left: none;
+@include media('>=desktop') {
+  .daysBlock:nth-child(2) {
+    border-left: none;
+  }
 }
+
+@include media('<=tablet') {
+  .daysBlock:nth-child(2) {
+    margin-top: 40px;
+  }
+}
+
 </style>

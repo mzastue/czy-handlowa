@@ -41,7 +41,8 @@ export default class DayBlock extends Vue {
     padding-left: 10px;
     height: 30px;
     width: 50%;
-    line-height: 2.8rem;
+    text-transform: uppercase;
+    font-size: 2.3rem;
     background: var(--color-accent-secondary);
     color: var(--color-bg);
     text-align: left;
@@ -50,7 +51,7 @@ export default class DayBlock extends Vue {
   .dayNumber {
     @include verticallyCenter;
     align-items: flex-end;
-    font-size: 15rem;
+    font-size: 20rem;
     flex-grow: 1;
     vertical-align: middle;
   }
@@ -58,7 +59,10 @@ export default class DayBlock extends Vue {
   .dayName {
     @include verticallyCenter;
     align-items: flex-start;
-    font-size: 4.5rem;
+    width: 90%;
+    align-self: center;
+    font-size: 3.5rem;
     flex-grow: 1;
+    text-transform: uppercase;
   }
 </style>

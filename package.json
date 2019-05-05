@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "include-media": "^1.4.9",
     "moment": "^2.24.0",
     "vue": "^2.6.6",
     "vue-class-component": "^6.0.0",

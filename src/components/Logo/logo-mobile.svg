@@ -1,0 +1,32 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="281"
+    height="36.079"
+    viewBox="0 0 281 36.079"
+  >
+    <g id="Sidebar" transform="translate(9.979 0.331)">
+      <rect
+        id="Sidebar-2"
+        data-name="Sidebar"
+        width="81"
+        height="35.748"
+        fill="none"
+      />
+      <text
+        id="CZYHANDLOWA_"
+        data-name="CZYHANDLOWA?"
+        transform="translate(271.021 29.669)"
+        fill="#eaebeb"
+        font-size="30"
+        font-family="Lato-Black, Lato"
+        font-weight="800"
+        letter-spacing="0.174em"
+      >
+        <tspan x="-280.515" y="0" fill="#eaebeb">CZY</tspan>
+        <tspan y="0" letter-spacing="0.035em" fill="#000">HAN</tspan>
+        <tspan y="0" letter-spacing="0.1em" fill="#000">DLO</tspan>
+        <tspan y="0" letter-spacing="0.035em" fill="#000">WA</tspan>
+        <tspan y="0" fill="#eaebeb" letter-spacing="0.035em">?</tspan>
+      </text>
+    </g>
+  </svg>

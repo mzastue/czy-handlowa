@@ -22,6 +22,11 @@ import moment from '@/utils/datetime';
 import Calendar from '@/utils/Calendar';
 import Day from '@/utils/Day';
 
+enum Themes {
+  dark = 'themeDark',
+  light = 'themeLight'
+}
+
 @Component({
   components: {
     AppHeader,
@@ -36,14 +41,14 @@ export default class App extends Vue {
   constructor() {
     super();
     this.calendar = new Calendar(new Day(moment()));
-    this.theme = 'themeLight';
+    this.theme = Themes.light;
   }
 
   mounted(): void {
     const hour = moment().hour();
 
     if (hour >= 22 || hour < 6) {
-      document.body.dataset.theme = 'dark';
+      this.theme = Themes.dark;
     }
   }
 }
@@ -54,12 +59,12 @@ export default class App extends Vue {
 @value white as colorWhite, black as colorBlack, accent as colorAccent, accentDark as colorAccentDark from "./components/shared/colors.css";
 
 .app {
-  height: 100%;
+  min-height: 100%;
+  height: auto;
 }
 
 .appHeader {
-  height: 200px;
-  // margin-bottom: 100px;
+  margin-bottom: 100px;
 }
 
 .wrapper {
@@ -67,16 +72,33 @@ export default class App extends Vue {
   flex-direction: row;
   margin: 0 auto;
   max-width: 1300px;
-  padding-top: 40px;
+  padding: 40px 5vw;
+
+  @include media('<desktop') {
+    flex-direction: column;
+    padding: 5vh;
+  }
 }
 
 .wrapperSidebar {
-  width: 20%;
+  width: 20vw;
+
+  @include media('<=desktop') {
+    width: 100%;
+    margin-bottom: 40px;
+  }
 }
 
 .wrapperMain {
-  padding-left: 200px;
-  width: 80%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 100px;
+  width: 80vw;
+
+  @include media('<=desktop') {
+    padding-left: 0;
+    width: 100%;
+  }
 }
 
 .theme {
@@ -103,9 +125,5 @@ export default class App extends Vue {
 
   color: var(--color-text);
   background: var(--color-bg);
-}
-
-.logo {
-  padding-left: 40px;
 }
 </style>
