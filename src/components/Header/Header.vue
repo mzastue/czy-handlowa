@@ -1,6 +1,6 @@
 <template>
 <header>
-  <h1>{{ month }}</h1>
+  <h1>Niedziela</h1>
   <Toggler :class="$style.toggler" v-model="isNearestSundayChecked" />
 </header>
 </template>
@@ -30,7 +30,7 @@ export default class Header extends Vue {
 @import '@/assets/styles/_breakpoints.scss';
 
 h1 {
-  font-size: 8rem;
+  font-size: 4rem;
   font-weight: 900;
 }
 

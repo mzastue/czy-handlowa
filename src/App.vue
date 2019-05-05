@@ -72,17 +72,7 @@ export default class App extends Vue {
 }
 
 .appFooter {
-  @include media('<=tablet', 'landscape') {
-    margin: 40px 0;
-  }
-
-  @include media('>tablet') {
-    margin: 40px 0;
-  }
-
-  @include media('<tablet', 'portrait') {
-    margin: 40px 0;
-  }
+  margin-top: 40px;
 
   @include media('>desktop') {
     margin: 0;
@@ -95,7 +85,7 @@ export default class App extends Vue {
   margin: 0 auto;
   max-width: 1300px;
   padding: 5vh 5vw;
-  height: 90vh;
+  min-height: 90vh;
 
   @include media('<desktop') {
     flex-direction: column;

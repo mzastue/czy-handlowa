@@ -32,7 +32,6 @@ export default class Calendar implements CalendarInterface {
 
   public constructor(firstDay: DayInterface) {
     this.addDay(firstDay);
-    this.month = firstDay.date.format('MMMM');
   }
 
   public addDay(day: DayInterface) {
@@ -42,6 +41,10 @@ export default class Calendar implements CalendarInterface {
     }
     day.isCommercial = isCommercialSunday(day);
     this.days.push(day);
+  }
+
+  public getMonth(day: DayInterface): string {
+    return day.date.format('MMMM');
   }
 
   public getToday(): DayInterface {

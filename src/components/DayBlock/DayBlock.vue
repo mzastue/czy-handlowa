@@ -1,6 +1,7 @@
 <template>
 <div :class="$style.box">
   <h3 :class="$style.title">{{ title }}</h3>
+  <h2 :class="$style.month">{{ month }}</h2>
   <h1 :class="$style.dayNumber">{{ dayNumber }}</h1>
   <h2 :class="$style.dayName">{{ dayName }}</h2>
 </div>
@@ -14,6 +15,7 @@ export default class DayBlock extends Vue {
   @Prop(String) readonly title!: string;
   @Prop(Number) readonly dayNumber!: number;
   @Prop(String) readonly dayName!: string;
+  @Prop(String) readonly month!: string;
 }
 </script>
 
@@ -46,6 +48,11 @@ export default class DayBlock extends Vue {
     background: var(--color-accent-secondary);
     color: var(--color-bg);
     text-align: left;
+  }
+
+  .month {
+    font-size: 2.5rem;
+    padding-top: 20px;
   }
 
   .dayNumber {

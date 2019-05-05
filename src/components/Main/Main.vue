@@ -6,12 +6,14 @@
         title="dzisiaj"
         :dayNumber="6"
         :dayName="today | dayText"
+        :month="calendar.getMonth(today)"
       />
       <DayBlock
         :class="$style.daysBlock"
         :title="daysToNextSunday | nextSundayTitle"
         :dayNumber="11"
         :dayName="nextSunday | dayText"
+        :month="calendar.getMonth(nextSunday)"
       />
     </div>
   </main>
