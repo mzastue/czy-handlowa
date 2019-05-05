@@ -27,14 +27,17 @@ export interface CalendarInterface {
 }
 
 export default class Calendar implements CalendarInterface {
+  public month: string;
   private days: Array<DayInterface> = [];
+
   public constructor(firstDay: DayInterface) {
     this.addDay(firstDay);
+    this.month = firstDay.date.format('MMMM');
   }
 
   public addDay(day: DayInterface) {
     if (this.days.length) {
-      const previousDay = this.previousDey();
+      const previousDay = this.days[this.days.length - 1];
       day.previousDayId = previousDay.getId();
     }
     day.isCommercial = isCommercialSunday(day);
@@ -43,9 +46,5 @@ export default class Calendar implements CalendarInterface {
 
   public getToday(): DayInterface {
     return this.days[0];
-  }
-
-  private previousDey(): DayInterface {
-    return this.days[this.days.length - 1];
   }
 }

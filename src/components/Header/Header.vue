@@ -1,6 +1,6 @@
 <template>
 <header>
-  <h1>Miesiąc</h1>
+  <h1>{{ month }}</h1>
   <Toggler :class="$style.toggler" v-model="isNearestSundayChecked" />
 </header>
 </template>
@@ -15,6 +15,8 @@ import Toggler from '@/components/Toggler/Toggler.vue';
   },
 })
 export default class Header extends Vue {
+  @Prop(String) readonly month!: string;
+
   isNearestSundayChecked: boolean;
 
   constructor() {
