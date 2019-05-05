@@ -22,6 +22,11 @@ import moment from '@/utils/datetime';
 import Calendar from '@/utils/Calendar';
 import Day from '@/utils/Day';
 
+enum Themes {
+  dark = 'themeDark',
+  light = 'themeLight'
+}
+
 @Component({
   components: {
     AppHeader,
@@ -36,15 +41,14 @@ export default class App extends Vue {
   constructor() {
     super();
     this.calendar = new Calendar(new Day(moment()));
-    this.theme = 'themeLight';
-    document.body.classList.add(this.theme);
+    this.theme = Themes.light;
   }
 
   mounted(): void {
     const hour = moment().hour();
 
     if (hour >= 22 || hour < 6) {
-      // document.body.classList.add('theme-dark');
+      this.theme = Themes.dark;
     }
   }
 }
