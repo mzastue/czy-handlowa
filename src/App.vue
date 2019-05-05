@@ -5,7 +5,7 @@
           czy handlowa
         </div>
         <div :class="$style.wrapperMain">
-          <AppHeader :class="$style.appHeader" />
+          <AppHeader :class="$style.appHeader" :month="calendar.month" />
           <AppMain :calendar="calendar" />
         </div>
     </div>
