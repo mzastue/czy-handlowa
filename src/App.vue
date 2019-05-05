@@ -2,7 +2,7 @@
   <div id="app" :class="[$style.app, $style.theme, $style[theme] ]">
     <div :class="$style.wrapper">
         <div :class="$style.wrapperSidebar">
-          czy handlowa
+          <Logo :class="$style.logo" />
         </div>
         <div :class="$style.wrapperMain">
           <AppHeader :class="$style.appHeader" :month="calendar.month" />
@@ -16,6 +16,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import AppHeader from '@/components/Header/Header.vue';
 import AppMain from '@/components/Main/Main.vue';
+import Logo from '@/components/Logo/Logo.vue';
 
 import moment from '@/utils/datetime';
 import Calendar from '@/utils/Calendar';
@@ -25,6 +26,7 @@ import Day from '@/utils/Day';
   components: {
     AppHeader,
     AppMain,
+    Logo,
   },
 })
 export default class App extends Vue {
@@ -65,15 +67,16 @@ export default class App extends Vue {
   flex-direction: row;
   margin: 0 auto;
   max-width: 1300px;
+  padding-top: 40px;
 }
 
 .wrapperSidebar {
-  width: 10%;
+  width: 20%;
 }
 
 .wrapperMain {
   padding-left: 200px;
-  width: 90%;
+  width: 80%;
 }
 
 .theme {
@@ -100,5 +103,9 @@ export default class App extends Vue {
 
   color: var(--color-text);
   background: var(--color-bg);
+}
+
+.logo {
+  padding-left: 40px;
 }
 </style>
