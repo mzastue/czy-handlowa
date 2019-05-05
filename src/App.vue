@@ -1,14 +1,16 @@
 <template>
-  <div id="app" :class="[$style.app, $style.theme, $style[theme] ]">
-    <div :class="$style.wrapper">
-        <div :class="$style.wrapperSidebar">
-          <Logo :class="$style.logo" />
-        </div>
-        <div :class="$style.wrapperMain">
-          <AppHeader :class="$style.appHeader" :month="calendar.month" />
-          <AppMain :calendar="calendar" />
-          <AppFooter />
-        </div>
+  <div :class="[$style.theme, $style[theme] ]">
+    <div :class="$style.app">
+      <div :class="$style.wrapper">
+          <div :class="$style.wrapperSidebar">
+            <Logo :class="$style.logo" />
+          </div>
+          <div :class="[$style.wrapperMain, $style.grow]">
+            <AppHeader :class="$style.appHeader" :month="calendar.month" />
+            <AppMain :class="$style.grow" :calendar="calendar" />
+            <AppFooter :class="$style.appFooter" />
+          </div>
+      </div>
     </div>
   </div>
 </template>
@@ -62,12 +64,29 @@ export default class App extends Vue {
 @value white as colorWhite, black as colorBlack, accent as colorAccent, accentDark as colorAccentDark, grey as colorGrey from "./components/shared/colors.css";
 
 .app {
-  min-height: 100%;
-  height: auto;
+  min-height: auto;
 }
 
 .appHeader {
   margin-bottom: 100px;
+}
+
+.appFooter {
+  @include media('<=tablet', 'landscape') {
+    margin: 40px 0;
+  }
+
+  @include media('>tablet') {
+    margin: 40px 0;
+  }
+
+  @include media('<tablet', 'portrait') {
+    margin: 40px 0;
+  }
+
+  @include media('>desktop') {
+    margin: 0;
+  }
 }
 
 .wrapper {
@@ -75,11 +94,11 @@ export default class App extends Vue {
   flex-direction: row;
   margin: 0 auto;
   max-width: 1300px;
-  padding: 40px 5vw;
+  padding: 5vh 5vw;
+  height: 90vh;
 
   @include media('<desktop') {
     flex-direction: column;
-    padding: 5vh;
   }
 }
 
@@ -111,6 +130,8 @@ export default class App extends Vue {
   --color-accent-secondary: colorBlack;
   --color-accent-dark: colorAccentDark;
   --color-grey: colorGrey;
+
+  min-height: 100%;
 }
 
 .themeLight {
@@ -129,5 +150,9 @@ export default class App extends Vue {
 
   color: var(--color-text);
   background: var(--color-bg);
+}
+
+.grow {
+  flex-grow: 1;
 }
 </style>

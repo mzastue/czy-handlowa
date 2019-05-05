@@ -16,7 +16,6 @@ export default class  extends Vue {
 <style module>
 .footer {
   color: var(--color-grey);
-  margin-top: 40px;
   align-self: center;
 }
 </style>
