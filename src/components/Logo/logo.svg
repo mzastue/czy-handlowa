@@ -1,7 +1,9 @@
-<svg id="Sidebar" xmlns="http://www.w3.org/2000/svg" width="60.757" height="140.232" viewBox="0 0 60.757 140.232">
-  <rect id="Sidebar-2" data-name="Sidebar" width="60.757" height="140.232" fill="none"/>
-  <text id="CZY_HAN_DLO_WA_" data-name="CZY
+<svg xmlns="http://www.w3.org/2000/svg" width="81" height="144" viewBox="0 0 81 144">
+  <g id="Sidebar" transform="translate(0 2.331)">
+    <rect id="Sidebar-2" data-name="Sidebar" width="81" height="139.339" fill="none"/>
+    <text id="CZY_HAN_DLO_WA_" data-name="CZY
 HAN
 DLO
-WA?" transform="translate(57.596 28)" fill="#eaebeb" font-size="30" font-family="Menlo-Bold, Menlo" font-weight="700"><tspan x="-54.185" y="0">CZY</tspan><tspan fill="#000"><tspan x="-54.185" y="35">HAN</tspan><tspan x="-54.185" y="70">DLO</tspan></tspan><tspan x="-54.185" y="105" fill="#000">WA</tspan><tspan y="105" fill="#eaebeb">?</tspan></text>
+WA?" transform="translate(74.021 27.669)" fill="#eaebeb" font-size="30" font-family="Lato-Black, Lato" font-weight="800" letter-spacing="0.174em"><tspan x="-68.475" y="0">CZY</tspan><tspan letter-spacing="0.035em" fill="#000"><tspan x="-67.95" y="36">HAN</tspan></tspan><tspan letter-spacing="0.1em" fill="#000"><tspan x="-68.475" y="72">DLO</tspan></tspan><tspan letter-spacing="0.035em"><tspan x="-67.965" y="108" fill="#000">WA</tspan><tspan y="108" fill="#eaebeb">?</tspan></tspan></text>
+  </g>
 </svg>

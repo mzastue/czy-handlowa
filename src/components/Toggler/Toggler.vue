@@ -10,8 +10,8 @@
     <label :class="$style.togglerLabel" for="option">
       <div
         :class="$style.togglerSwitch"
-        data-checked="Najblizsza niedziela"
-        data-unchecked="Niedziela handlowa"
+        data-checked="Najbliższa"
+        data-unchecked="Handlowa"
       ></div>
     </label>
   </div>
@@ -75,6 +75,7 @@ export default class Toggler extends Vue {
   display: flex;
   align-items: center;
   border: 1px solid var(--color-accent-secondary);
+  font-size: 1.8rem;
 }
 
 .togglerSwitch {
@@ -122,6 +123,7 @@ export default class Toggler extends Vue {
 }
 
 .togglerSwitch:before {
+
   left: 0;
   width: 50%;
   line-height: 36px;
@@ -137,6 +139,5 @@ export default class Toggler extends Vue {
   transition: transform 0.3s cubic-bezier(0, 1, 0.5, 1),
     -webkit-transform 0.3s cubic-bezier(0, 1, 0.5, 1);
   color: var(--color-bg);
-  font-size: 1.6rem;
 }
 </style>
