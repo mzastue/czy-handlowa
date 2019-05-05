@@ -5,8 +5,8 @@
           czy handlowa
         </div>
         <div :class="$style.wrapperMain">
-          <AppHeader :class="$style.appHeader"></AppHeader>
-          <AppMain></AppMain>
+          <AppHeader :class="$style.appHeader" />
+          <AppMain :calendar="calendar" />
         </div>
     </div>
   </div>

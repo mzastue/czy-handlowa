@@ -44,6 +44,7 @@ export default class DayBlock extends Vue {
     line-height: 2.8rem;
     background: var(--color-accent-secondary);
     color: var(--color-bg);
+    text-align: left;
   }
 
   .dayNumber {
