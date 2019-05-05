@@ -74,10 +74,19 @@ export default class Main extends Vue {
   @include media('<tablet') {
     display: block;
   }
+
+  @include media('<tablet') {
+    box-shadow: none;
+  }
 }
 
 .daysBlock {
+  composes: shadow from '@/components/shared/layout.css';
   height: 410px;
+
+  @include media('>=tablet') {
+    box-shadow: none;
+  }
 }
 
 @include media('>=desktop') {
@@ -86,7 +95,7 @@ export default class Main extends Vue {
   }
 }
 
-@include media('<=tablet') {
+@include media('<tablet') {
   .daysBlock:nth-child(2) {
     margin-top: 40px;
   }

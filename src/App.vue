@@ -7,6 +7,7 @@
         <div :class="$style.wrapperMain">
           <AppHeader :class="$style.appHeader" :month="calendar.month" />
           <AppMain :calendar="calendar" />
+          <AppFooter />
         </div>
     </div>
   </div>
@@ -16,6 +17,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import AppHeader from '@/components/Header/Header.vue';
 import AppMain from '@/components/Main/Main.vue';
+import AppFooter from '@/components/Footer/Footer.vue';
 import Logo from '@/components/Logo/Logo.vue';
 
 import moment from '@/utils/datetime';
@@ -32,6 +34,7 @@ enum Themes {
     AppHeader,
     AppMain,
     Logo,
+    AppFooter,
   },
 })
 export default class App extends Vue {
@@ -56,7 +59,7 @@ export default class App extends Vue {
 
 <style module lang="scss">
 @import 'assets/style.scss';
-@value white as colorWhite, black as colorBlack, accent as colorAccent, accentDark as colorAccentDark from "./components/shared/colors.css";
+@value white as colorWhite, black as colorBlack, accent as colorAccent, accentDark as colorAccentDark, grey as colorGrey from "./components/shared/colors.css";
 
 .app {
   min-height: 100%;
@@ -83,7 +86,7 @@ export default class App extends Vue {
 .wrapperSidebar {
   width: 20vw;
 
-  @include media('<=desktop') {
+  @include media('<desktop') {
     width: 100%;
     margin-bottom: 40px;
   }
@@ -107,6 +110,7 @@ export default class App extends Vue {
   --color-accent-primary: colorAccent;
   --color-accent-secondary: colorBlack;
   --color-accent-dark: colorAccentDark;
+  --color-grey: colorGrey;
 }
 
 .themeLight {

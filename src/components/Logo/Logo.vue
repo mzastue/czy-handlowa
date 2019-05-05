@@ -89,7 +89,7 @@ export default class Logo extends Vue {}
 @import '@/assets/styles/_breakpoints.scss';
 
 .desktop {
-  @include media('>desktop') {
+  @include media('>=desktop') {
     display: block;
   }
 
@@ -103,7 +103,7 @@ export default class Logo extends Vue {}
     display: block;
   }
 
-  @include media('>desktop') {
+  @include media('>=desktop') {
     display: none;
   }
 }
